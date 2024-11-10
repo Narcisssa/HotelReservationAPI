@@ -44,6 +44,22 @@ namespace HotelReservationAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> MakeReservation(ReservationRequestDto request)
         {
+
+
+            // Validate that the start date is not in the past
+            if (request.StartDate < DateTime.Now.Date)
+            {
+                return BadRequest("You cannot book a room for a past date.");
+            }
+
+            // Validate that the reservation is not longer than 30 days
+            if ((request.EndDate - request.StartDate).Days > 30)
+            {
+                return BadRequest("Reservation cannot be longer than 30 days.");
+            }
+
+
+
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             var reservation = new Reservation
