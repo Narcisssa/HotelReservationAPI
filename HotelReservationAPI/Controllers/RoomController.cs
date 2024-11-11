@@ -1,4 +1,5 @@
-﻿using HotelReservationAPI.Context;
+﻿// Importa el espacio de nombres que contienen las definiciones de modelos y dependencias necesarias.
+using HotelReservationAPI.Context;
 using HotelReservationAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
