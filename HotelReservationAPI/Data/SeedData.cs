@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace HotelReservationAPI.Data
 {
+    // inicializar los roles Admin y Customer
     public class SeedData
     {
         public static async Task Initialize(IServiceProvider serviceProvider)
