@@ -6,16 +6,16 @@
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
-        // You could add this as a custom validation to check the start date
-        public bool IsStartDateValid()
+        // que la fecha sea no sea una pasada
+         public bool IsStartDateValid()
         {
-            return StartDate >= DateTime.Now.Date;  // Checks if the start date is in the future
+            return StartDate >= DateTime.Now.Date; 
         }
 
-        // Add custom validation for the reservation length
+        // no más de 30 días por reserva 
         public bool IsValidReservationLength()
         {
-            return (EndDate - StartDate).Days <= 30;  // Ensures reservation is no longer than 30 days
+            return (EndDate - StartDate).Days <= 30;  
         }
     }
 }
