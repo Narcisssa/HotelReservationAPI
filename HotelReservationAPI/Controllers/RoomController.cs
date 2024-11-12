@@ -19,14 +19,14 @@ namespace HotelReservationAPI.Controllers
         }
 
 
-        // GET: api/room - Obtener todas las habitaciones (disponible para todos los usuarios)
+        // GET: api/room - Obtener todas las habitaciones (disp para todos los usuarios)
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Room>>> GetRooms()
         {
             return await _context.Rooms.ToListAsync();
         }
 
-        // POST: api/room - Añadir una nueva habitación (solo administradores)
+        // POST: api/room - Añadir una nueva habitación 
         [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<Room>> AddRoom(Room room)
@@ -36,7 +36,7 @@ namespace HotelReservationAPI.Controllers
             return CreatedAtAction(nameof(GetRooms), new { id = room.Id }, room);
         }
 
-        // PUT: api/room/{id} - Editar una habitación existente (solo administradores)
+        // PUT: api/room/{id} - Editar una habitación existente 
         [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateRoom(int id, Room room)
@@ -49,7 +49,7 @@ namespace HotelReservationAPI.Controllers
             return NoContent();
         }
 
-        // DELETE: api/room/{id} - Eliminar una habitación (solo administradores)
+        // DELETE: api/room/{id} - Eliminar una habitación 
         [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRoom(int id)

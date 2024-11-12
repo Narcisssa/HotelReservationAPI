@@ -11,6 +11,7 @@ namespace HotelReservationAPI.Context
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
 
+        // Price como decimal de alta precisión para los valores monetarios 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
